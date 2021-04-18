@@ -1,4 +1,4 @@
-package com.example.springdataone;
+package com.example.springdataone.repository.entity;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -6,23 +6,21 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-public class Product {
+public class Customer {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private String name;
-    private float price;
-    private boolean available;
+    private String address;
 
-    public Product() {
+    public Customer(String name, String address) {
+        this.name = name;
+        this.address = address;
     }
 
-    public Product(String name, float price, boolean available) {
-        this.name = name;
-        this.price = price;
-        this.available = available;
+    public Customer() {
     }
 
     public Long getId() {
@@ -41,29 +39,20 @@ public class Product {
         this.name = name;
     }
 
-    public float getPrice() {
-        return price;
+    public String getAddress() {
+        return address;
     }
 
-    public void setPrice(float price) {
-        this.price = price;
-    }
-
-    public boolean isAvailable() {
-        return available;
-    }
-
-    public void setAvailable(boolean available) {
-        this.available = available;
+    public void setAddress(String address) {
+        this.address = address;
     }
 
     @Override
     public String toString() {
-        return "Product{" +
+        return "Customer{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
-                ", price=" + price +
-                ", available=" + available +
+                ", address='" + address + '\'' +
                 '}';
     }
 }
