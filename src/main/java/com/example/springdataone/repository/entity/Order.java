@@ -1,4 +1,4 @@
-package com.example.springdataone;
+package com.example.springdataone.repository.entity;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
