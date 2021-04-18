@@ -38,6 +38,8 @@ public class ProductApi {
 
     @PutMapping("api/admin/product")
     public Product updateProduct(@RequestParam Long id, @RequestBody Product product) {
+        product.setId(id);
+
         return products.save(product);
     }
 

@@ -38,6 +38,8 @@ public class CustomerApi {
 
     @PutMapping("api/admin/customer")
     public Customer updateCustomer(@RequestParam Long id, @RequestBody Customer customer) {
+        customer.setId(id);
+
         return customers.save(customer);
     }
 
