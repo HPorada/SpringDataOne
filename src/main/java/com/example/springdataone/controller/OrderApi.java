@@ -42,6 +42,8 @@ public class OrderApi {
 
     @PutMapping("api/admin/order")
     public Order updateOrder(@RequestParam Long id, @RequestBody Order order) {
+        order.setId(id);
+
         return orders.save(order);
     }
 
