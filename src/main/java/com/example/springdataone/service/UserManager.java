@@ -21,7 +21,7 @@ public class UserManager {
         return userRepository.findAll();
     }
 
-    //GET by ID
+    //GET by name
     public Optional<User> findByName(String name) {
         return userRepository.findByName(name);
     }

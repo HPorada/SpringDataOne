@@ -13,6 +13,22 @@ public class UserDtoBuilder {
     public UserDtoBuilder() {
     }
 
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    public UserDto getUserDto() {
+        return userDto;
+    }
+
+    public void setUserDto(UserDto userDto) {
+        this.userDto = userDto;
+    }
+
     public UserDtoBuilder(User user, UserDto userDto) {
         this.user = user;
         this.userDto = userDto;
