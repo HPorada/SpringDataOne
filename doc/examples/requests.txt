@@ -1,0 +1,112 @@
+CUSTOMER:
+
+1.  GET http://localhost:8082/api/product?id=1
+
+2.  GET http://localhost:8082/api/product/all
+
+3.  POST http://localhost:8082/api/admin/product
+  {
+      "name": "Blu-ray Film",
+      "price": 74.99,
+      "available": true
+  }
+
+4.  PUT http://localhost:8082/api/admin/product?id=1
+  {
+      "name": "Sequel Book",
+      "price": 34.99,
+      "available": true
+  }
+
+5.  PATCH http://localhost:8082/api/admin/product?id=1
+  {
+      "available": false
+  }
+
+
+ORDER:
+
+1.  GET http://localhost:8082/api/order?id=1
+
+2.  GET http://localhost:8082/api/order/all
+
+3. POST http://localhost:8082/api/admin/order
+  {
+          "customer": {
+              "id": 1,
+              "name": "Jak Kowalski",
+              "address": "Wrocław"
+          },
+          "products": [
+              {
+                  "id": 2,
+                  "name": "DVD Movie",
+                  "price": 15.49,
+                  "available": true
+              },
+              {
+                  "id": 1,
+                  "name": "Book",
+                  "price": 29.99,
+                  "available": true
+              }
+          ],
+          "placeDate": "2021-04-18T17:17:42.710053",
+          "status": "in progress"
+   }
+
+4.  PUT http://localhost:8082/api/admin/order?id=1
+  {
+          "customer": {
+              "id": 1,
+              "name": "Jak Kowalski",
+              "address": "Wrocław"
+          },
+          "products": [
+              {
+                  "id": 2,
+                  "name": "DVD Movie",
+                  "price": 15.49,
+                  "available": true
+              },
+              {
+                  "id": 1,
+                  "name": "Book",
+                  "price": 29.99,
+                  "available": true
+              }
+          ],
+          "placeDate": "2021-04-18T17:17:42.710053",
+          "status": "delivered"
+      }
+    
+5.  PATCH http://localhost:8082/api/admin/order?id=1
+  {
+      "status": "delivered"
+  }
+
+
+PRODUCT:
+
+1.  GET http://localhost:8082/api/product?id=1
+
+2.  GET http://localhost:8082/api/product/all
+
+3.  POST http://localhost:8082/api/admin/product
+  {
+      "name": "CD Album",
+      "price": 54.99,
+      "available": true
+  }
+  
+4.  PUT http://localhost:8082/api/admin/product?id=1
+  {
+      "name": "CD Album",
+      "price": 54.99,
+      "available": false
+  }
+
+5.  PATCH http://localhost:8082/api/admin/product?id=1
+  {
+      "price": 54.99,
+  }
