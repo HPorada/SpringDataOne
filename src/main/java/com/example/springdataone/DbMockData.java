@@ -1,11 +1,7 @@
 package com.example.springdataone;
 
-import com.example.springdataone.repository.CustomerRepository;
-import com.example.springdataone.repository.OrderRepository;
-import com.example.springdataone.repository.ProductRepository;
-import com.example.springdataone.repository.entity.Customer;
-import com.example.springdataone.repository.entity.Order;
-import com.example.springdataone.repository.entity.Product;
+import com.example.springdataone.repository.*;
+import com.example.springdataone.repository.entity.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.event.ApplicationReadyEvent;
 import org.springframework.context.event.EventListener;
@@ -20,12 +16,14 @@ public class DbMockData {
     private ProductRepository productRepository;
     private OrderRepository orderRepository;
     private CustomerRepository customerRepository;
+    private UserDtoRepository userDtoRepository;
 
     @Autowired
-    public DbMockData(ProductRepository productRepository, OrderRepository orderRepository, CustomerRepository customerRepository) {
+    public DbMockData(ProductRepository productRepository, OrderRepository orderRepository, CustomerRepository customerRepository, UserDtoRepository userRepository) {
         this.productRepository = productRepository;
         this.orderRepository = orderRepository;
         this.customerRepository = customerRepository;
+        this.userDtoRepository = userRepository;
     }
 
     @EventListener(ApplicationReadyEvent.class)
@@ -37,7 +35,8 @@ public class DbMockData {
             {
                 add(product);
                 add(product1);
-            }};
+            }
+        };
         Order order = new Order(customer, products, LocalDateTime.now(), "in progress");
 
         productRepository.save(product);
@@ -54,7 +53,8 @@ public class DbMockData {
                 add(product2);
                 add(product3);
                 add(product4);
-            }};
+            }
+        };
         Order order1 = new Order(customer1, products1, LocalDateTime.now(), "in progress");
 
         productRepository.save(product2);
@@ -62,5 +62,26 @@ public class DbMockData {
         productRepository.save(product4);
         customerRepository.save(customer1);
         orderRepository.save(order1);
+
+
+        User user1 = new User("user", "userpass", "ROLE_CUSTOMER");
+        User user2 = new User("admin", "adminpass", "ROLE_ADMIN");
+
+        UserDto userDto1 = new UserDto();
+        UserDto userDto2 = new UserDto();
+
+        UserDtoBuilder builder1 = new UserDtoBuilder(user1, userDto1);
+        UserDtoBuilder builder2 = new UserDtoBuilder(user2, userDto2);
+
+        builder1.setNewName();
+        builder1.setNewPassword();
+        builder1.setNewRole();
+
+        builder2.setNewName();
+        builder2.setNewPassword();
+        builder2.setNewRole();
+
+        userDtoRepository.save(builder1.getUserDto());
+        userDtoRepository.save(builder2.getUserDto());
     }
 }
