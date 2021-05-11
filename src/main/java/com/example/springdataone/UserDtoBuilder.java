@@ -13,6 +13,11 @@ public class UserDtoBuilder {
     public UserDtoBuilder() {
     }
 
+    public UserDtoBuilder(User user, UserDto userDto) {
+        this.user = user;
+        this.userDto = userDto;
+    }
+
     public User getUser() {
         return user;
     }
@@ -29,11 +34,6 @@ public class UserDtoBuilder {
         this.userDto = userDto;
     }
 
-    public UserDtoBuilder(User user, UserDto userDto) {
-        this.user = user;
-        this.userDto = userDto;
-    }
-
     public void setNewName() {
         userDto.setName(user.getName());
     }
@@ -41,6 +41,7 @@ public class UserDtoBuilder {
     public void setNewPassword() {
         PasswordEncoder pass = new PasswordEncoderConfig().passwordEncoder();
         userDto.setPasswordHash(pass.encode(user.getPassword()));
+        user.setPassword(userDto.getPasswordHash());
     }
 
     public void setNewRole() {

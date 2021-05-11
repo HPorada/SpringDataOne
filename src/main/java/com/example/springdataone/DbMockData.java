@@ -63,6 +63,7 @@ public class DbMockData {
         customerRepository.save(customer1);
         orderRepository.save(order1);
 
+
         User user1 = new User("user", "userpass", "ROLE_CUSTOMER");
         User user2 = new User("admin", "adminpass", "ROLE_ADMIN");
 
