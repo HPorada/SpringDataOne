@@ -1,3 +1,4 @@
+/*
 package com.example.springdataone.configuration;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -52,3 +53,4 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .and().csrf().disable();
     }
 }
+*/
