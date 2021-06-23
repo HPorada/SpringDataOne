@@ -1,26 +1,26 @@
 CUSTOMER:
 
-1.  GET http://localhost:8082/api/product?id=1
+1.  GET http://localhost:8082/api/customer?id=1
 
-2.  GET http://localhost:8082/api/product/all
+2.  GET http://localhost:8082/api/customer/all
 
-3.  POST http://localhost:8082/api/admin/product
+3.  POST http://localhost:8082/api/admin/customer
   {
-      "name": "Blu-ray Film",
-      "price": 74.99,
-      "available": true
+      "id": 4,
+      "name": "Joanna Wróbel",
+      "address": "Kraków"
   }
 
-4.  PUT http://localhost:8082/api/admin/product?id=1
+4.  PUT http://localhost:8082/api/admin/customer?id=4
   {
-      "name": "Sequel Book",
-      "price": 34.99,
-      "available": true
+      "id": 4,
+      "name": "Joanna Wróbel",
+      "address": "Katowice"
   }
 
-5.  PATCH http://localhost:8082/api/admin/product?id=1
+5.  PATCH http://localhost:8082/api/admin/customer?id=1
   {
-      "available": false
+      "name": "Joanna Wróblewska"
   }
 
 
@@ -108,5 +108,5 @@ PRODUCT:
 
 5.  PATCH http://localhost:8082/api/admin/product?id=1
   {
-      "price": 54.99,
+      "price": 54.99
   }
